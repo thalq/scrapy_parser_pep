@@ -3,6 +3,7 @@ from pep_parse.items import PepParseItem
 
 
 class PepSpider(scrapy.Spider):
+
     name = 'pep'
     allowed_domains = ['peps.python.org']
     start_urls = ['https://peps.python.org/']
@@ -17,8 +18,10 @@ class PepSpider(scrapy.Spider):
         yield PepParseItem(data)
 
     def parse(self, response):
+
         table = response.css('section[id="numerical-index"]')
-        pep_links = table.css('a[class="pep reference internal"]::attr(href)').getall()
+        pep_links = table.css(
+            'a[class="pep reference internal"]::attr(href)'
+        ).getall()
         for link in pep_links:
             yield response.follow(link, callback=self.parse_pep)
-
