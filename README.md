@@ -44,3 +44,6 @@ scrapy crawl pep
 
 ## Автор
 [Tanya Khalkvist](https://github.com/thalq) 
+
+## Лицензия
+[LICENCE](https://github.com/thalq/scrapy_parser_pep/blob/main/LICENCE.md)
