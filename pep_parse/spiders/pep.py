@@ -12,7 +12,7 @@ class PepSpider(scrapy.Spider):
 
     def parse_pep(self, response):
         name = response.css('h1.page-title::text').get()
-        number = (re.findall('(\d+)', name))[0]
+        number = (re.findall(r'(\d+)', name))[0]
         data = {
             'number': number,
             'name': name,
