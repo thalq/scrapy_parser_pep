@@ -1,12 +1,13 @@
 import csv
 from collections import Counter
 from datetime import datetime as dt
-from .constants import BASE_DIR, DATETIME_FORMAT, FILE_NAME
+
+from .constants import BASE_DIR, DATETIME_FORMAT, FILE_NAME, RESULT_DIR
 
 
 class PepParsePipeline:
     def open_spider(self, spider):
-        result_dir = BASE_DIR / 'results'
+        result_dir = RESULT_DIR
         result_dir.mkdir(exist_ok=True)
         self.status_counter = Counter()
 
